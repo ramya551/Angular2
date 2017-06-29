@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  templateUrl : 'app/app.component.html',
+  templateUrl : 'app/app.componentngif.html',
 })
 export class AppComponent  {
   appTitle: string = 'Welcome';
+  appStatus : boolean = true;
  }
 
 
