@@ -1,21 +1,29 @@
 import { Component } from '@angular/core';
+import { Iproduct } from './product';
+import { ProductService } from './products.service';
 
-@Component({
-  selector: 'my-app',
-  templateUrl : 'app/app.component2.html',
+import { Http , Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+@Component ({
+   selector: 'demo-app',
+   templateUrl: './app.component.html',
+   providers: [ProductService]
 })
-export class AppComponent  {
-  appTitle: string = 'Welcome';
-   appList: any[] = [ {
-      "ID": "1",
-      "Name" : "One"
-   },
 
-   {
-      "ID": "2",
-      "Name" : "Two"
-   } ];
- }
+export   class   AppComponent  {
+   iproducts: Iproduct[];
+   constructor(private _product: ProductService){
+   }
+   ngOnInit() : void {
+      this._product.getproducts()
+      .subscribe(iproducts => this.iproducts = iproducts);
+   }
+}
+
+
+
 
 
 
